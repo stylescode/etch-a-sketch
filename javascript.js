@@ -11,6 +11,8 @@ function createGrid(amountSquares = 16) {
       square.classList.add('square');
     }
   }
+  let squares = document.querySelectorAll('.square');
+  squares.forEach(square => square.addEventListener('mouseover', fillSquare));
 }
 
 createGrid();
@@ -18,12 +20,6 @@ createGrid();
 function fillSquare() {
   this.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
 }
-
-let squares = document.querySelectorAll('.square');
-
-squares.forEach(square => square.addEventListener('mouseover', fillSquare));
-
-const editBtn = document.querySelector('.editButton');
 
 function clearGrid() {
   container.innerHTML = '';
@@ -36,10 +32,9 @@ function editGrid() {
   } else {
     clearGrid();
     createGrid(userChoice);
-    let squares = document.querySelectorAll('.square');
-    squares.forEach(square => square.addEventListener('mouseover', fillSquare));
   };
 }
 
+const editBtn = document.querySelector('.editButton');
 editBtn.addEventListener('click', editGrid);
 
