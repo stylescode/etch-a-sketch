@@ -16,8 +16,7 @@ function createGrid(amountSquares = 16) {
 createGrid();
 
 function fillSquare() {
-  console.log(this);
-  this.classList.add('hovered');
+  this.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
 }
 
 let squares = document.querySelectorAll('.square');
